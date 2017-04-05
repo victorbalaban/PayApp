@@ -1,0 +1,135 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.button{
+	-fx-background-color: 
+        #404040,
+    linear-gradient(#303030, #20262b);
+    -fx-background-insets: 0.0,1.0,1.0,0.0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 5.0, 0.0 , 0.0 , 1.0 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: #2ba7b7;
+    -fx-font-size: 14.0px;
+    -fx-padding: 10.0 20.0 10.0 20.0;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#20262b, #1f2429);
+}
+
+.button:pressed{
+    -fx-background-color: linear-gradient(#20262b, #303030);
+}
+
+#mainLoginPane{
+	 -fx-background-image: url("/images/bg.png");
+}
+
+#loginPane{
+	 -fx-background-image: url("/images/bg.png");
+}
+
+#registerPane{
+	-fx-background-image: url("/images/bg.png");
+}
+
+#furnizorLoginPane{
+	-fx-background-image: url("/images/bg.png");
+}
+
+#rectangleClient:hover{
+	-fx-opacity:0.2;
+}
+
+#rectangleFurnizor:hover{
+	-fx-opacity:0.2;
+}
+
+/*
+ * client window
+ */
+ 
+ #meniuPaneBig{
+ 	-fx-background-image: url("/images/bg.png");
+ }
+ 
+ #meniuPaneSmall{
+ 	-fx-background-image: url("/images/tweed.png");	
+ }
+ 
+/*
+ * main meniu butoane
+ */
+
+#rec01:hover{
+	-fx-opacity:0.2;
+}
+
+#rec02:hover{
+	-fx-opacity:0.2;
+}
+
+#rec03:hover{
+	-fx-opacity:0.2;
+}
+
+#rec04:hover{
+	-fx-opacity:0.2;
+}
+
+#rec05:hover{
+	-fx-opacity:0.2;
+}
+
+/*
+ * client window pane-uri meniu
+ */
+ 
+ #totiFurnizoriiPane{
+ 	-fx-background-image: url("/images/bg.png");
+ }
+ 
+ 
+  #furnizoriiMeiPane{
+  	-fx-background-image: url("/images/bg.png");
+  }
+
+
+ #facturileMelePane{
+  	-fx-background-image: url("/images/bg.png");
+  }
+  
+  #alimentareContPane{
+  	-fx-background-image: url("/images/bg.png");
+  }
+  
+  #setariPane{
+  	-fx-background-image: url("/images/bg.png");
+  }
+  
+  
+  /*
+   * furnizori window 
+   */
+   #clientiPane{
+ 	-fx-background-image: url("/images/bg.png");
+ }
+ 
+ 
+  #facturiEmisePane{
+  	-fx-background-image: url("/images/bg.png");
+  }
+  
+  /*
+   * table view design
+   */
+  .table-row-cell:selected {
+   -fx-background-color: #2ba7b7; 
+}
+.table-view .column-header {    
+    
+    -fx-background-image: url("/images/tweed.png");  
+}
+.table-view .column-header .label {
+    -fx-text-fill: #2ba7b7; 
+    -fx-font-weight: bold;
+}

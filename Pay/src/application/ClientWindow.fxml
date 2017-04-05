@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ClientController">
+   <children>
+      <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane id="meniuPaneSmall" prefHeight="37.0" prefWidth="1280.0" style="-fx-background-color: #707070;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Hyperlink fx:id="btnLogout" layoutX="1212.0" layoutY="2.0" onAction="#logout" text="Logout" textFill="#2ba7b7">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label fx:id="value" layoutX="598.0" layoutY="4.0" text="\$$$ Account" textFill="#2ba7b7">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="btnMenu" layoutX="8.0" layoutY="2.0" onAction="#showMenuBig" text="Menu" textFill="#2ba7b7">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label id="currentUserLabel" fx:id="currentUserLabel" layoutX="889.0" layoutY="6.0" prefHeight="25.0" prefWidth="316.0" style="-fx-alignment: center-right;" text="currentUser" textAlignment="RIGHT" textFill="#2ba7b7">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane id="setariPane" fx:id="settingsPane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+               <children>
+                  <TextField fx:id="settingsName" layoutX="376.0" layoutY="181.0" promptText="Name" />
+                  <TextField fx:id="settingsSurname" layoutX="715.0" layoutY="181.0" promptText="Surname" />
+                  <TextField fx:id="settingsPhone" layoutX="376.0" layoutY="287.0" promptText="Phone" />
+                  <TextField fx:id="settingsEmail" layoutX="715.0" layoutY="287.0" promptText="Email" />
+                  <Label layoutX="376.0" layoutY="144.0" text="Name" textFill="#414346" />
+                  <Label layoutX="715.0" layoutY="144.0" text="Surname" textFill="#414346" />
+                  <Label layoutX="376.0" layoutY="255.0" text="Phone Number" textFill="#414346" />
+                  <Label layoutX="717.0" layoutY="255.0" text="Email" textFill="#414346" />
+                  <Label layoutX="376.0" layoutY="346.0" text="New Password" textFill="#414346" />
+                  <Label layoutX="717.0" layoutY="346.0" text="Confirm new password" textFill="#414346" />
+                  <Button fx:id="btnSaveSettings" layoutX="602.0" layoutY="562.0" mnemonicParsing="false" onAction="#saveSettings" text="Save" />
+                  <Label fx:id="settingsLabel" layoutX="381.0" layoutY="475.0" prefHeight="21.0" prefWidth="525.0" style="-fx-alignment: center;" textFill="#d30a0a" />
+                  <PasswordField fx:id="settingsPassword1" layoutX="376.0" layoutY="380.0" />
+                  <PasswordField fx:id="settingsPassword2" layoutX="715.0" layoutY="380.0" />
+               </children></Pane>
+            <Pane id="alimentareContPane" fx:id="feedAccountPane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="546.0" layoutY="342.0" text="Feed my account" textFill="#414346">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <TextField fx:id="feedAccountLabel" layoutX="547.0" layoutY="396.0" promptText="Value $" />
+                  <Button fx:id="btnFeedAccount" layoutX="577.0" layoutY="455.0" mnemonicParsing="false" onAction="#feedAccount" text="Feed Account" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="540.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/money.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="feedLabel" alignment="CENTER" layoutX="378.0" layoutY="554.0" prefHeight="21.0" prefWidth="525.0" textFill="#414346" />
+               </children></Pane>
+            <Pane id="myInvoicesPane" fx:id="myInvoicesPane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+               <children>
+                  <TableView fx:id="myInvoicesTable" layoutX="50.0" layoutY="42.0" prefHeight="520.0" prefWidth="1181.0">
+                    <columns>
+                      <TableColumn fx:id="columnSupplier" prefWidth="314.0" text="Supplier" />
+                      <TableColumn fx:id="columnValue" prefWidth="89.0" text="Total Value" />
+                        <TableColumn fx:id="columnDate" prefWidth="245.0" text="Release Date" />
+                        <TableColumn fx:id="columnMaturityDate" prefWidth="245.0" text="Maturity Date" />
+                        <TableColumn fx:id="columnPaid" prefWidth="72.0" text="Paid" />
+                        <TableColumn fx:id="columnCurrentValue" prefWidth="124.0" text="Current Value" />
+                        <TableColumn fx:id="columnFineValue" prefWidth="90.0" text="Fine Value" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="btnPayInvoice" layoutX="578.0" layoutY="604.0" mnemonicParsing="false" onAction="#payInvoices" text="Pay Invoice" />
+                  <Label fx:id="invoiceLabel" alignment="CENTER" layoutX="541.0" layoutY="569.0" prefHeight="21.0" prefWidth="200.0" textFill="#da0b0b" />
+               </children></Pane>
+            <Pane id="furnizoriiMeiPane" fx:id="mySuppliersPane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+               <children>
+                  <TableView fx:id="mySuppliersTable" layoutX="103.0" layoutY="95.0" prefHeight="494.0" prefWidth="898.0">
+                    <columns>
+                      <TableColumn fx:id="columnFirmName" editable="false" prefWidth="330.0" sortable="false" text="Firm Name" />
+                      <TableColumn fx:id="columnPhone" editable="false" minWidth="0.0" prefWidth="123.0" sortable="false" text="Phone Number" />
+                        <TableColumn fx:id="columnEmail" editable="false" minWidth="0.0" prefWidth="165.0" sortable="false" text="Email" />
+                        <TableColumn fx:id="columnService" editable="false" minWidth="0.0" prefWidth="278.0" sortable="false" text="Service" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="btnDeleteMySuppliers" layoutX="1072.0" layoutY="326.0" mnemonicParsing="false" onAction="#deleteMySuppliers" text="Delete Supplier" />
+               </children></Pane>
+            <Pane id="totiFurnizoriiPane" fx:id="allSuppliersPane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="143.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                     <image>
+                        <Image url="@../images/apa.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="546.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/digi.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="923.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/electrica.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="143.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/gaz.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="546.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/orange.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="923.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/telekom.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="143.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/upc.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="546.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/urban.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="923.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/vodafone.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="131.0" layoutY="161.0" onMouseEntered="#setID1" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="535.0" layoutY="160.0" onMouseEntered="#setID2" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="919.0" layoutY="161.0" onMouseEntered="#setID3" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="131.0" layoutY="355.0" onMouseEntered="#setID4" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="534.0" layoutY="355.0" onMouseEntered="#setID5" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="919.0" layoutY="355.0" onMouseEntered="#setID6" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="143.0" layoutY="585.0" onMouseEntered="#setID7" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="534.0" layoutY="585.0" onMouseEntered="#setID8" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="919.0" layoutY="585.0" onMouseEntered="#setID9" stroke="TRANSPARENT" strokeType="INSIDE" width="224.0" />
+                  <Hyperlink fx:id="btnAddApa" layoutX="151.0" layoutY="176.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeApa" layoutX="268.0" layoutY="176.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnAddDigi" layoutX="554.0" layoutY="176.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeDigi" layoutX="671.0" layoutY="176.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeElectrica" layoutX="1055.0" layoutY="176.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnAddElectrica" layoutX="938.0" layoutY="176.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnAddGaz" layoutX="158.0" layoutY="371.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeGaz" layoutX="275.0" layoutY="371.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeOrange" layoutX="671.0" layoutY="371.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnAddOrange" layoutX="554.0" layoutY="371.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeTelekom" layoutX="1055.0" layoutY="371.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnAddTelekom" layoutX="938.0" layoutY="371.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeUpc" layoutX="275.0" layoutY="601.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnAddUpc" layoutX="158.0" layoutY="601.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeUrban" layoutX="665.0" layoutY="601.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnAddUrban" layoutX="548.0" layoutY="601.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnAddVodafone" layoutX="945.0" layoutY="601.0" onAction="#addProvider" text="Add supplier" textFill="#2ba7b7" />
+                  <Hyperlink fx:id="btnSubscribeVodafone" layoutX="1062.0" layoutY="601.0" onAction="#subscribeProvider" text="Subscribe" textFill="#2ba7b7" />
+                  <Label fx:id="allSuppliersLabel" alignment="CENTER" layoutX="263.0" layoutY="34.0" prefHeight="21.0" prefWidth="755.0" textFill="#972918" />
+               </children></Pane>
+            <Pane id="meniuPaneBig" fx:id="menuPaneBig" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="554.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" x="-10.0">
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                     <image>
+                        <Image url="@../images/totiFurnizorii.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="914.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/furnizoriiMei.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="171.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/facturileMele.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="562.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true" x="-22.0">
+                     <image>
+                        <Image url="@../images/alimentare.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="914.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/setari.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="200.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="205.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="56.0" fitWidth="149.0" layoutX="197.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/nume.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#414346" layoutX="601.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Suppliers" x="-10.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#414346" layoutX="962.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Suppliers">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#414346" layoutX="219.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Invoices">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#414346" layoutX="609.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Feed" x="-22.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#414346" layoutX="972.0" layoutY="543.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Rectangle id="rec01" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="490.0" layoutY="108.0" onMousePressed="#showAllSuppliers" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow height="10.0" offsetX="3.0" offsetY="3.0" radius="4.5" spread="0.7" width="10.0" />
+                     </effect>
+                  </Rectangle>
+                  <Rectangle id="rec02" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="864.0" layoutY="108.0" onMousePressed="#showMySuppliers" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow height="10.0" offsetX="3.0" offsetY="3.0" radius="4.5" spread="0.7" width="10.0" />
+                     </effect>
+                  </Rectangle>
+                  <Rectangle id="rec04" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="490.0" layoutY="376.0" onMousePressed="#showAccountFeed" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow height="10.0" offsetX="3.0" offsetY="3.0" radius="4.5" spread="0.7" width="10.0" />
+                     </effect>
+                  </Rectangle>
+                  <Rectangle id="rec05" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="864.0" layoutY="376.0" onMousePressed="#showSettings" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow height="10.0" offsetX="3.0" offsetY="3.0" radius="4.5" spread="0.7" width="10.0" />
+                     </effect>
+                  </Rectangle>
+                  <Rectangle id="rec03" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="122.0" layoutY="376.0" onMousePressed="#showMyInvoices" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow height="10.0" offsetX="3.0" offsetY="3.0" radius="4.5" spread="0.7" width="10.0" />
+                     </effect>
+                  </Rectangle>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

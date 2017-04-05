@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SupplierController">
+   <children>
+      <Pane id="setariPane" fx:id="settingsPane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+         <children>
+            <TextField fx:id="settingsName" layoutX="381.0" layoutY="127.0" promptText="Firm name" />
+            <TextField fx:id="settingsCui" layoutX="711.0" layoutY="127.0" promptText="CUI" />
+            <TextField fx:id="settingsTelefon" layoutX="383.0" layoutY="227.0" promptText="Phone" />
+            <TextField fx:id="settingsEmail" layoutX="713.0" layoutY="227.0" promptText="Email" />
+            <TextField fx:id="settingsPenalty" layoutX="275.0" layoutY="349.0" promptText="Penalty" />
+            <TextField fx:id="setttingsReleaseDay" layoutX="547.0" layoutY="349.0" promptText="Day of month" />
+            <TextField fx:id="settingsMaturityDays" layoutX="806.0" layoutY="349.0" promptText="Maturity days" />
+            <PasswordField fx:id="settingsPass1" layoutX="382.0" layoutY="460.0" promptText="New password" />
+            <PasswordField fx:id="settingsPass2" layoutX="712.0" layoutY="460.0" promptText="Confirm the password" />
+            <Label layoutX="381.0" layoutY="99.0" text="Firm name" textFill="#414346" />
+            <Label layoutX="711.0" layoutY="99.0" text="CUI" textFill="#414346" />
+            <Label layoutX="383.0" layoutY="196.0" text="Phone" textFill="#414346" />
+            <Label layoutX="712.0" layoutY="196.0" text="Email" textFill="#414346" />
+            <Label layoutX="382.0" layoutY="430.0" text="New password" textFill="#414346" />
+            <Label layoutX="712.0" layoutY="430.0" text="Confirm the password" textFill="#414346" />
+            <Button fx:id="btnSaveSettings" layoutX="615.0" layoutY="563.0" mnemonicParsing="false" onAction="#saveSettings" text="Save" />
+            <Label fx:id="settingsLabel" alignment="CENTER" layoutX="384.0" layoutY="524.0" prefHeight="21.0" prefWidth="513.0" textFill="#d32424" />
+            <Label layoutX="275.0" layoutY="312.0" text="\\% daily penalty" />
+            <Label layoutX="806.0" layoutY="312.0" text="Maturity days" />
+            <Label layoutX="529.0" layoutY="312.0" text="Send invoice on the day of month" />
+         </children></Pane>
+      <Pane id="facturiEmisePane" fx:id="sentInvoicePane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+         <children>
+            <TableView fx:id="sentInvoiceTabel" layoutX="51.0" layoutY="40.0" prefHeight="603.0" prefWidth="1177.0">
+              <columns>
+                <TableColumn fx:id="columnClient" prefWidth="297.0" text="Client" />
+                <TableColumn fx:id="columnValue" prefWidth="87.0" text="Value" />
+                  <TableColumn fx:id="columnData" prefWidth="245.0" text="Date of issue" />
+                  <TableColumn fx:id="columnDataScadenta" prefWidth="245.0" text="Due date" />
+                  <TableColumn fx:id="columnPaid" prefWidth="76.0" text="Paid" />
+                  <TableColumn fx:id="columnValCurrent" prefWidth="128.0" text="Current value" />
+                  <TableColumn fx:id="columnFine" prefWidth="97.0" text="Penalty" />
+              </columns>
+            </TableView>
+         </children></Pane>
+      <Pane id="clientiPane" fx:id="clientsPane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+         <children>
+            <TableView fx:id="clientsTabel" layoutX="79.0" layoutY="64.0" prefHeight="555.0" prefWidth="913.0">
+              <columns>
+                <TableColumn fx:id="columnName" prefWidth="208.0" sortable="false" text="Surname" />
+                <TableColumn fx:id="columnSurname" prefWidth="195.0" sortable="false" text="Name" />
+                  <TableColumn fx:id="columnTelefon" prefWidth="199.0" sortable="false" text="Phone" />
+                  <TableColumn fx:id="columnEmail" prefWidth="308.0" sortable="false" text="Email" />
+              </columns>
+            </TableView>
+            <TableView fx:id="clients2Tabel" layoutX="989.0" layoutY="64.0" prefHeight="555.0" prefWidth="170.0">
+              <columns>
+                <TableColumn fx:id="columnSubscribe" prefWidth="84.0" sortable="false" text="Subscribed" />
+                <TableColumn fx:id="columnBanned" prefWidth="84.0" sortable="false" text="Banned" />
+              </columns>
+            </TableView>
+         </children></Pane>
+      <Pane id="meniuPaneSmall" prefHeight="37.0" prefWidth="1280.0" style="-fx-background-color: #707070;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Hyperlink fx:id="btnMeniu" layoutX="14.0" layoutY="2.0" onAction="#showMeniu" text="Menu" textFill="#2ba7b7">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btnLogout" layoutX="1205.0" layoutY="2.0" onAction="#logout" text="Logout" textFill="#2ba7b7">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Hyperlink>
+            <Label fx:id="currentProviderLabel" layoutX="881.0" layoutY="6.0" prefHeight="25.0" prefWidth="311.0" style="-fx-alignment: center-right;" text="currentFurnizor" textAlignment="RIGHT" textFill="#2ba7b7">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="meniuPaneBig" fx:id="meniuPane" layoutY="37.0" prefHeight="683.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="294.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="61.0" fitWidth="163.0" layoutX="279.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/nume.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="802.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+               <viewport>
+                  <Rectangle2D height="200.0" width="300.0" />
+               </viewport>
+               <image>
+                  <Image url="@../images/clientiiMei.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="279.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/facturileMele.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D height="200.0" width="300.0" />
+               </viewport>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="802.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/setari.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D height="200.0" width="300.0" />
+               </viewport>
+            </ImageView>
+            <Text fill="#414346" layoutX="885.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#414346" layoutX="323.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invoices issued">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#414346" layoutX="871.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Rectangle id="rec01" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="752.0" layoutY="96.0" onMousePressed="#showClienti" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+               <effect>
+                  <DropShadow height="10.0" offsetX="3.0" offsetY="3.0" radius="4.5" spread="0.7" width="10.0" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Rectangle>
+            <Rectangle id="rec02" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="229.0" layoutY="387.0" onMousePressed="#showSentInvoice" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" offsetX="3.0" offsetY="3.0" radius="4.5" spread="0.7" width="10.0" />
+               </effect>
+            </Rectangle>
+            <Rectangle id="rec03" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="752.0" layoutY="387.0" onMousePressed="#showSettings" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" offsetX="3.0" offsetY="3.0" radius="4.5" spread="0.7" width="10.0" />
+               </effect>
+            </Rectangle>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
